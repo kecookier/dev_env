@@ -6,7 +6,8 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # ===== 彩色提示符：绿 user@host + 蓝 cwd =====
-PS1='[\[\e[1;32m\]\u@\h\[\e[0m\] \[\e[1;34m\]\w\[\e[0m\]]\$ '
+_host=${HOSTNAME##*-}; _host=${_host%%.*}
+PS1='[\[\e[1;32m\]\u@${_host}\[\e[0m\] \[\e[1;34m\]\w\[\e[0m\]]\$ '
 
 # ===== 常用 alias =====
 alias ls='ls --color=auto'
