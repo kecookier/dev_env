@@ -295,11 +295,11 @@ set autoindent      " 自动缩进,和上一行一样缩进
 " command line completion operates show match above command line
 set wildmenu
 
-" tab转化为4个字符
+" tab转化为2个字符
 set expandtab
 set smarttab
-set shiftwidth=4    " indent space
-set tabstop=4       " tab space character
+set shiftwidth=2    " indent space
+set tabstop=2       " tab space character
 
 set backspace=eol,start,indent " 设置随意删除,删除到上一行
 set whichwrap+=<,>,h,l " 退格键和方向键可以换行
@@ -488,7 +488,7 @@ au BufRead,BufNewFile pending.data,completed.data setf task
 " Filetype related autosettings " {{{
 au FileType jam   set makeprg=bjam
 au FileType blade set makeprg=blade
-au FileType diff  setlocal shiftwidth=4 tabstop=4
+au FileType diff  setlocal shiftwidth=2 tabstop=2
 au FileType html  setlocal autoindent indentexpr=
 au FileType changelog setlocal textwidth=76
 " 把-等符号也作为xml文件的有效关键字，可以用Ctrl-N补全带-等字符的属性名
@@ -555,7 +555,7 @@ set term=screen-256color
 set cursorline
 set cc=120
 :hi CursorLine cterm=underline ctermbg=none
-:colors zenburn
+silent! colors zenburn
 
 " execute project related configuration in current directory "{{{
 autocmd VimEnter * :call s:ReadSession()
@@ -575,3 +575,9 @@ function! s:WriteSession()
 endfunction
 " }}}
 
+
+" ===== 2026-10 dev_env 调优（配合 tmux/Ghostty）=====
+set mouse=a
+if has('termguicolors')
+    set termguicolors
+endif

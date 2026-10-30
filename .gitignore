@@ -21,3 +21,6 @@
 *.i*86
 *.x86_64
 *.hex
+
+# XDG app data (runtime state, not config)
+.local/share/
